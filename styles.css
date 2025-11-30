@@ -1,0 +1,408 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: white;
+    overflow-x: auto;
+    min-height: 100vh;
+}
+
+.slide-container {
+    width: 1920px;
+    height: 1080px;
+    background: white;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Main Title */
+.main-title {
+    position: absolute;
+    top: 79px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: normal;
+    text-align: center;
+    color: black;
+    white-space: nowrap;
+    width: 1109px;
+}
+
+/* Impact Level Axis */
+.axis-container {
+    position: absolute;
+    left: 158px;
+    top: 313px;
+    width: 200px;
+    height: 532px;
+}
+
+.axis-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 8px;
+    line-height: 10px;
+    color: black;
+    width: 113px;
+    height: 21px;
+}
+
+.axis-line {
+    position: absolute;
+    left: 43px;
+    top: 24px;
+    width: 532px;
+    height: 0;
+    border-top: 1px solid black;
+    transform: rotate(270deg);
+    transform-origin: left top;
+}
+
+.axis-numbers {
+    position: absolute;
+    left: 8px;
+    top: 152px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 380px;
+    gap: 0;
+}
+
+.axis-number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 8px;
+    line-height: 10px;
+    color: black;
+    width: 24px;
+    height: 18px;
+    text-align: center;
+}
+
+/* Legend Box */
+.legend-box {
+    position: absolute;
+    right: 140px;
+    top: 173px;
+    width: 550px;
+    z-index: 10;
+}
+
+.legend-element-box {
+    position: relative;
+    background: white;
+    border: 4px solid #ff8688;
+    width: 93px;
+    height: 93px;
+    margin-bottom: 20px;
+}
+
+.legend-element-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.legend-element-number {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 10px;
+    color: black;
+}
+
+.legend-element-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 8px;
+    line-height: 10px;
+    color: black;
+    margin: 8px 0 4px;
+}
+
+.legend-element-type {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: black;
+    margin-top: auto;
+}
+
+.legend-labels {
+    position: relative;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.label-name {
+    top: 0;
+}
+
+.label-impact {
+    top: 57px;
+}
+
+.label-functional {
+    top: 69px;
+}
+
+.label-hormone {
+    top: 13px;
+}
+
+.label-image {
+    top: 40px;
+}
+
+.legend-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 8px;
+    line-height: 10px;
+    color: black;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.legend-label::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    width: 15px;
+    height: 1px;
+    background: black;
+    transform: translateY(-50%);
+}
+
+.label-name {
+    left: 25px;
+}
+
+.label-impact {
+    left: 762px;
+}
+
+.label-functional {
+    left: 726px;
+}
+
+.label-hormone {
+    left: 1110px;
+}
+
+.label-image {
+    left: 1100px;
+}
+
+/* Habits Frame */
+.habits-frame {
+    position: absolute;
+    left: 225px;
+    top: 313px;
+    width: 1460px;
+    height: 525px;
+    background: white;
+    overflow: visible;
+}
+
+.habit-box {
+    position: absolute;
+    background: white;
+    border: 4px solid;
+    width: 93px;
+    height: 93px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.habit-box:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.habit-box.active {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.habit-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.habit-number {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 10px;
+    color: black;
+}
+
+.habit-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 8px;
+    line-height: 10px;
+    color: black;
+    margin: 8px 0 4px;
+    word-break: break-word;
+    max-width: 130px;
+}
+
+.habit-type {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: normal;
+    color: black;
+    margin-top: auto;
+}
+
+/* Border Colors */
+.habit-box.dopamin {
+    border-color: #ffde76;
+}
+
+.habit-box.oxytocin {
+    border-color: #ff8688;
+}
+
+.habit-box.serotonin {
+    border-color: #5ecf98;
+}
+
+.habit-box.endorphins {
+    border-color: #c497f7;
+}
+
+
+/* Neurotransmitter Boxes */
+.neurotransmitters {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+
+.neuro-box {
+    position: relative;
+    background: white;
+    width: 246px;
+    height: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neuro-border {
+    position: absolute;
+    inset: -4px;
+    border: 4px solid;
+    pointer-events: none;
+}
+
+.dopamin-border {
+    border-color: #ffde76;
+}
+
+.oxytocin-border {
+    border-color: rgba(255, 53, 56, 0.6);
+}
+
+.serotonin-border {
+    border-color: #5ecf98;
+}
+
+.endorphins-border {
+    border-color: #c497f7;
+}
+
+.neuro-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: normal;
+    color: black;
+    z-index: 1;
+}
+
+/* Habit Type Labels */
+.habit-labels {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+
+.habit-type-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: normal;
+    color: black;
+}
+
+.type-letter {
+    margin-right: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 1920px) {
+    .slide-container {
+        transform: scale(calc(100vw / 1920));
+        transform-origin: top left;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-container {
+        transform: scale(calc(100vw / 1920));
+        transform-origin: top left;
+    }
+    
+    .habits-frame {
+        overflow-x: auto;
+    }
+}
+
